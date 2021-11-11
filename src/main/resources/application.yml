@@ -1,0 +1,28 @@
+cloud:
+  aws:
+    credentials:
+      access-key: ACCESSKEY
+      secret-key: SECRETKEY
+    region:
+      static: us-east-1
+    stack:
+      auto: false
+
+spring:
+   cloud:
+    stream:
+      bindings:
+        generateFile-in-0:
+          destination: channel01
+
+application:
+  bucket:
+    name: nombreBucket
+  file:
+    name: nombrearchivo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
