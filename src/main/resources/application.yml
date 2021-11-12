@@ -11,14 +11,14 @@ cloud:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://URLEJEMPLO:3306/casouso?autoReconnect=true&useSSL=false
-    username: USEREJEMPLO
-    password: PASSWORDEJEMPLO
+    url: jdbc:mysql://mysql:3306/demo
+    username: root
+    password: rootpw
   cloud:
     stream:
       bindings:
         generateFile-in-0:
-          destination: channel01
+          destination: channel02
 
 application:
   bucket:
