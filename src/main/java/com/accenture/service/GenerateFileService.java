@@ -1,6 +1,6 @@
 package com.accenture.service;
 
-import com.accenture.model.Bines052;
+
 import com.accenture.model.Transaction;
 import com.accenture.repository.Bines052Repository;
 import com.accenture.repository.TransactionRepository;
@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -32,7 +32,7 @@ public class GenerateFileService {
 
     public void creatingFile(){
         List<Transaction> list = transactionRepository.findAll();
-
+        Date date = new Date();
         File fout = new File("Data2.txt");
         try (FileOutputStream fos = new FileOutputStream(fout);
              BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos))) {
@@ -41,7 +41,7 @@ public class GenerateFileService {
                 bw.newLine();
             }
             bw.close();
-            s3Client.putObject(bucketName, fileName, fout);
+            s3Client.putObject(bucketName, date + "-" + fileName, fout);
         } catch (IOException ignored) {
         }
     }
