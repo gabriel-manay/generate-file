@@ -1,7 +1,9 @@
 package com.accenture.service;
 
 import com.accenture.model.Bines052;
+import com.accenture.model.Transaction;
 import com.accenture.repository.Bines052Repository;
+import com.accenture.repository.TransactionRepository;
 import com.amazonaws.services.s3.AmazonS3;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,13 +27,16 @@ public class GenerateFileService {
     @Autowired
     private Bines052Repository repository;
 
+    @Autowired
+    private TransactionRepository transactionRepository;
+
     public void creatingFile(){
-        List<Bines052> list = repository.findAll();
+        List<Transaction> list = transactionRepository.findAll();
 
         File fout = new File("Data2.txt");
         try (FileOutputStream fos = new FileOutputStream(fout);
              BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos))) {
-            for (Bines052 message : list) {
+            for (Transaction message : list) {
                 bw.write(message.toString());
                 bw.newLine();
             }
