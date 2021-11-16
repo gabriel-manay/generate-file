@@ -45,6 +45,7 @@ public class Transaction {
     private String POSEntryMode; // 162-163
     private String centralProcessingDate; // 164-167
     private String reimbursementAttribute; // 168
+    private String valid;
 
     public Transaction() {
     }
@@ -331,29 +332,57 @@ public class Transaction {
         this.reimbursementAttribute = reimbursementAttribute;
     }
 
+    public String getValid() {
+        return valid;
+    }
+
+    public void setValid(String valid) {
+        this.valid = valid;
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
     @Override
     public String toString() {
-        return "Transaction [transactionCode=" + transactionCode + ", transactionCodeQualifier="
-                + transactionCodeQualifier + ", transactionComponentSequenceNumber="
-                + transactionComponentSequenceNumber + ", accountNumber=" + accountNumber + ", accountNumberExtension="
-                + accountNumberExtension + ", floorLimitIndicator=" + floorLimitIndicator
-                + ", crbExceptionFileIndicator=" + crbExceptionFileIndicator + ", PCASIndicator=" + PCASIndicator
-                + ", acquirerReferenceNumber=" + acquirerReferenceNumber + ", acquirersBusinessID="
-                + acquirersBusinessID + ", purchaseDate=" + purchaseDate + ", destinationAmount=" + destinationAmount
-                + ", destinationCurrencyCode=" + destinationCurrencyCode + ", sourceAmount=" + sourceAmount
-                + ", sourceCurrencyCode=" + sourceCurrencyCode + ", merchantName=" + merchantName + ", merchantCity="
-                + merchantCity + ", merchantCountryCode=" + merchantCountryCode + ", merchantCategoryCode="
-                + merchantCategoryCode + ", merchantZIPCode=" + merchantZIPCode + ", merchantStateProvinceCode="
-                + merchantStateProvinceCode + ", requestedPaymentService=" + requestedPaymentService
-                + ", numberOfPaymentForms=" + numberOfPaymentForms + ", usageCode=" + usageCode + ", reasonCode="
-                + reasonCode + ", settlementFlag=" + settlementFlag + ", authorizationCharacteristicsIndicator="
-                + authorizationCharacteristicsIndicator + ", authorizationCode=" + authorizationCode
-                + ", POSTerminalCapability=" + POSTerminalCapability + ", reserved=" + reserved
-                + ", cardholderIDMethod=" + cardholderIDMethod + ", collectionOnlyFlag=" + collectionOnlyFlag
-                + ", POSEntryMode=" + POSEntryMode + ", centralProcessingDate=" + centralProcessingDate
-                + ", reimbursementAttribute=" + reimbursementAttribute + "]";
+        return "Transaction{" +
+                "id=" + id +
+                ", transactionCode='" + transactionCode + '\'' +
+                ", transactionCodeQualifier='" + transactionCodeQualifier + '\'' +
+                ", transactionComponentSequenceNumber='" + transactionComponentSequenceNumber + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", accountNumberExtension='" + accountNumberExtension + '\'' +
+                ", floorLimitIndicator='" + floorLimitIndicator + '\'' +
+                ", crbExceptionFileIndicator='" + crbExceptionFileIndicator + '\'' +
+                ", PCASIndicator='" + PCASIndicator + '\'' +
+                ", acquirerReferenceNumber='" + acquirerReferenceNumber + '\'' +
+                ", acquirersBusinessID='" + acquirersBusinessID + '\'' +
+                ", purchaseDate='" + purchaseDate + '\'' +
+                ", destinationAmount='" + destinationAmount + '\'' +
+                ", destinationCurrencyCode='" + destinationCurrencyCode + '\'' +
+                ", sourceAmount='" + sourceAmount + '\'' +
+                ", sourceCurrencyCode='" + sourceCurrencyCode + '\'' +
+                ", merchantName='" + merchantName + '\'' +
+                ", merchantCity='" + merchantCity + '\'' +
+                ", merchantCountryCode='" + merchantCountryCode + '\'' +
+                ", merchantCategoryCode='" + merchantCategoryCode + '\'' +
+                ", merchantZIPCode='" + merchantZIPCode + '\'' +
+                ", merchantStateProvinceCode='" + merchantStateProvinceCode + '\'' +
+                ", requestedPaymentService='" + requestedPaymentService + '\'' +
+                ", numberOfPaymentForms='" + numberOfPaymentForms + '\'' +
+                ", usageCode='" + usageCode + '\'' +
+                ", reasonCode='" + reasonCode + '\'' +
+                ", settlementFlag='" + settlementFlag + '\'' +
+                ", authorizationCharacteristicsIndicator='" + authorizationCharacteristicsIndicator + '\'' +
+                ", authorizationCode='" + authorizationCode + '\'' +
+                ", POSTerminalCapability='" + POSTerminalCapability + '\'' +
+                ", reserved='" + reserved + '\'' +
+                ", cardholderIDMethod='" + cardholderIDMethod + '\'' +
+                ", collectionOnlyFlag='" + collectionOnlyFlag + '\'' +
+                ", POSEntryMode='" + POSEntryMode + '\'' +
+                ", centralProcessingDate='" + centralProcessingDate + '\'' +
+                ", reimbursementAttribute='" + reimbursementAttribute + '\'' +
+                ", valid='" + valid + '\'' +
+                '}';
     }
 }

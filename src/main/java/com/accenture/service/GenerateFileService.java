@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +33,9 @@ public class GenerateFileService {
 
     public void creatingFile(){
         List<Transaction> list = transactionRepository.findAll();
-        Date date = new Date();
+        String pattern = "yyyyMMdd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
         File fout = new File("Data2.txt");
         try (FileOutputStream fos = new FileOutputStream(fout);
              BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos))) {

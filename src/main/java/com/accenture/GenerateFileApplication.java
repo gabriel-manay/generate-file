@@ -30,12 +30,12 @@ public class GenerateFileApplication {
 
 	@Bean
 	public Consumer<Message<String>> generateFile() {
-		ArrayList<String> mensajes=  new ArrayList<>();
-
-		service.creatingFile();
-		return message ->
-				logger.info("Se recibe transaccion: " + message.getPayload());
-
+		//ArrayList<String> mensajes=  new ArrayList<>();
+		return message ->{
+			if(message.getPayload().equals("No more lines")){
+				service.creatingFile();
+				}
+			logger.info("Se recibe transaccion: " + message.getPayload());
+			};
 		};
-	
 }
