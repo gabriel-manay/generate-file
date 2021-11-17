@@ -3,8 +3,10 @@ package com.accenture;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.function.Consumer;
 
+import com.accenture.model.Transaction;
 import com.accenture.service.GenerateFileService;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.slf4j.Logger;
@@ -29,10 +31,11 @@ public class GenerateFileApplication {
 	}
 
 	@Bean
-	public Consumer<Message<String>> generateFile() {
+	public Consumer<Message<Transaction>> generateFile() {
 		//ArrayList<String> mensajes=  new ArrayList<>();
 		return message ->{
-			if(message.getPayload().equals("No more lines")){
+			Transaction transaction = (Transaction) message.getPayload();
+			if(Objects.equals(transaction.getTransactionCode(), "AA")){
 				service.creatingFile();
 				}
 			logger.info("Se recibe transaccion: " + message.getPayload());
